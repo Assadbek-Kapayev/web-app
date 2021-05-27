@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+
+<div th:each="product : ${products}">
+    <p th:text="${'id: ' + product.getId() + ', subcatalogid: ' + product.getSubCatalogId() + ', name: ' +
+       product.getName() + ', description: ' + product.getDescription()}">product</p>
+</div>
+<hr/>
+<a href="/catalog">go to main page</a>
+<br/>
+<hr/>
+</body>
+</html>

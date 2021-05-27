@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Catalog</title>
+</head>
+<body>
+Catalogs
+<div th:each="catalog : ${catalogs}">
+    <a th:href="@{/admin/{id}(id=${catalog.getId()})}"
+       th:text="${catalog.getName()}">catalog</a>
+    <a th:href="@{/admin/{id}/edit(id=${catalog.getId()})}"
+       th:text="edit"></a>
+    <form th:method="DELETE" th:action="@{/admin/{id}(id=${catalog.getId()})}">
+        <input type="submit" value="Delete"/>
+    </form>
+</div>
+<hr/>
+Subcatalogs
+<div th:each="subCatalog : ${subcatalogs}">
+    <a th:href="@{/products/{id}(id=${subCatalog.getId()})}"
+       th:text="${subCatalog.getName()}">subCatalog</a>
+</div>
+<hr/>
+<a href="/catalog">go to main page</a>
+<br/>
+<hr/>
+</body>
+</html>

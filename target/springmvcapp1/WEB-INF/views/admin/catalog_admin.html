@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Catalog</title>
+</head>
+<body>
+
+<div th:each="catalog : ${catalogs}">
+    <a th:href="@{/admin/{id}(id=${catalog.getId()})}"
+       th:text="${catalog.getName()}">user</a>
+    <a th:href="@{/admin/{id}/edit(id=${catalog.getId()})}"
+       th:text="edit"></a>
+    <form th:method="DELETE" th:action="@{/admin/{id}(id=${catalog.getId()})}">
+        <input type="submit" value="Delete"/>
+    </form>
+</div>
+<hr/>
+<a href="/admin/new">create new catalog</a>
+<br/>
+</body>
+</html>
